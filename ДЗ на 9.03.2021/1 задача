@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+
+long long mult(int* A, int n) {
+
+	if (n == 1) return A[n];
+	int p = mult(A, n - 1);
+	return p * A[n];
+}
+
+int main() {
+	int n;
+	cin >> n;
+	int k = 1;
+	int * a = new int[n];
+	for (int i = 0; i < n; i++) { cin >> a[i]; }
+	cout << mult(a, n - 1);
+	delete[] a;
+	return 0;
+}
