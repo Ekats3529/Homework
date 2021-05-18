@@ -1,0 +1,39 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <vector>
+#include <list>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool Correct(int n) {
+    if (n < 1) {
+        cout << "Error: the count of numbers must be more than 1. Try again";
+    }
+    return (n > 1);
+}
+
+
+
+int main()
+{
+    // A
+    int n, num;
+    vector<int> v;
+    cin >> n;
+    if (!Correct(n)) { cin >> n; }
+    for (int i = 0; i < n; i++) {
+        cin >> num;
+        v.push_back(num);
+    }
+    vector<int>::iterator it = min_element(v.begin(), v.end());
+    int m = *it;
+    v.insert(it, 0);
+    vector<int>::iterator it1 = find(v.begin(), v.end(), m);
+    it1++;
+    v.insert(it1, 0);
+    for (int i = 0; i < v.size(); i++) { cout << v[i] << " "; }
+    cout << endl;
+    return 0;
+}
